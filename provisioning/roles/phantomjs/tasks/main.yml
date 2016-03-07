@@ -1,0 +1,7 @@
+---
+# Install PhantomJS
+- stat: path=/usr/local/bin/{{ phantomjs_file }}/bin/phantomjs
+  register: phantomjs_exists
+
+- include: other.yml
+  when: phantomjs_exists|failed

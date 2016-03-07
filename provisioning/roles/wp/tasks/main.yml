@@ -1,0 +1,22 @@
+---
+- name: Setup wp-config
+  template: src=wp-config.php.j2 dest={{ path }}/wp-config.php
+
+- name: Reset the permission on Website directory
+  file: state=directory path={{ path }} owner=www-data group=www-data recurse=yes
+
+- name: Disable the Test Nginx Site
+  file: dest=/etc/nginx/sites-enabled/test_site state=absent
+  ignore_errors: True
+  notify:
+    - restart nginx
+
+- name: Add the "{{ website_name }}" config
+  template: src=virtualhost.conf.j2 dest=/etc/nginx/sites-available/{{ website_name }} owner=root group=root
+  notify:
+    - restart nginx
+
+- name: Enable "{{ website_name }}" Site Config
+  file: src=/etc/nginx/sites-available/{{ website_name }} dest=/etc/nginx/sites-enabled/{{ website_name }} state=link
+  notify:
+    - restart nginx

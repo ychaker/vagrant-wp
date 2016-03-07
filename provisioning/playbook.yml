@@ -1,0 +1,40 @@
+---
+# Basics
+- hosts: all
+  sudo: True
+  roles:
+    - base
+    - php
+    - ruby
+    - vim
+    - node
+    - phantomjs
+
+# DB
+- hosts: all
+  sudo: True
+  roles:
+    - mysql
+
+- hosts: all
+  user: vagrant
+  tasks:
+    - name: Ramove Apache2
+      apt: name={{ item }} state=absent purge=yes force=yes
+      with_items:
+        - apache2
+        - apache2-utils
+
+    - file: path=~
+
+# Servers
+- hosts: all
+  sudo: True
+  roles:
+    - nginx
+
+# Wordpress
+- hosts: all
+  sudo: True
+  roles:
+    - wp

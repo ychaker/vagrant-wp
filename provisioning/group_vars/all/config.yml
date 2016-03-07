@@ -1,0 +1,32 @@
+---
+target:       virtualbox
+path:         /vagrant
+website_name: a2z
+
+username:         vagrant
+group_name:       '{{ username }}'
+user_home_path:   '/home/{{ username }}'
+
+ruby_install:    rbenv
+ruby_version:    2.2.1
+ruby_username:   '{{ "root" if ruby_install == "package" else username }}'
+
+mysql_db_name:      wp_development
+mysql_db_user:      vagrant
+mysql_db_password:  vagrant
+
+phantomjs_file:   phantomjs-1.9.8-linux-x86_64
+phantomjs_ext:    .tar.bz2
+phantomjs_md5:    4ea7aa79e45fbc487a63ef4788a18ef7
+phantomjs_sha256: a1d9628118e270f26c4ddd1d7f3502a93b48ede334b8585d11c1c3ae7bc7163a
+
+php_install:  '1'
+php_ppa:      php5-5.6
+php_packages: [php5-cli, php5-intl, php5-mcrypt, php5-mysql, php5-gd, php-apc]
+
+server_type:      nginx
+server_name:      localhost
+server_timezone:  UTC
+server_locale:    en_US.UTF-8
+ssl_certificate_path:     /etc/nginx/ssl/{{ server_name }}.crt
+ssl_certificate_key_path: /etc/nginx/ssl/{{ server_name }}.key
