@@ -1,9 +1,9 @@
 ---
 - name: Update APT package cache
-  command: apt-get update
+  apt: update_cache=yes
 
 - name: Install python-apt  (Required by ANSIBLE)
-  command: apt-get -y install python-apt
+  apt: name=python-apt
 
 - name: Install packages
   apt: name={{ item }} state=installed update_cache=yes cache_valid_time=3600
@@ -37,7 +37,7 @@
     - qt5-default
     - qt4-dev-tools
     - zlib1g-dev
-  sudo: yes
+  become: yes
 
 - name: Create application group
   group: name={{ group_name }}

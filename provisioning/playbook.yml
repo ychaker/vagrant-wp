@@ -1,7 +1,7 @@
 ---
 # Basics
 - hosts: all
-  sudo: True
+  become: true
   roles:
     - base
     - php
@@ -12,7 +12,7 @@
 
 # DB
 - hosts: all
-  sudo: True
+  become: true
   roles:
     - mysql
 
@@ -29,12 +29,12 @@
 
 # Servers
 - hosts: all
-  sudo: True
+  become: true
   roles:
     - nginx
 
 # Wordpress
 - hosts: all
-  sudo: True
+  become: true
   roles:
     - wp

@@ -9,5 +9,5 @@
 
 - name: Unarchive PhantomJS
   unarchive: src=/tmp/{{ phantomjs_file }}{{ phantomjs_ext }} dest=/usr/local/bin group=root owner=root mode=0755 copy=no
-  sudo: yes
+  become: yes
   when: phantomjs_dl|success

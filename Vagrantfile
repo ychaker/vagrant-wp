@@ -126,7 +126,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "./provisioning/playbook.yml"
-    ansible.sudo = true
+    ansible.become = true
   end
 
   if File.file?("vagrant.rb")

@@ -6,4 +6,4 @@
     - node
     - grunt-cli
     - bower
-  sudo: yes
+  become: yes
