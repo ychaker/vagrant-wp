@@ -1,0 +1,5 @@
+# Install the base role from the Ansible Galaxy
+- src: bearandgiraffe.base
+
+# Install the ruby role from the Ansible Galaxy
+- src: bearandgiraffe.ruby

@@ -3,9 +3,9 @@
 - hosts: all
   become: true
   roles:
-    - base
+    - bearandgiraffe.base
     - php
-    - ruby
+    - bearandgiraffe.ruby
     - vim
     - node
     - phantomjs
@@ -24,6 +24,7 @@
       with_items:
         - apache2
         - apache2-utils
+      become: true
 
     - file: path=~
 
