@@ -3,7 +3,7 @@
 $nginx = $_SERVER["SERVER_SOFTWARE"];
 $php = phpversion();
 
-$link = mysqli_connect("localhost", "{{ mysql_db_user }}", "{{ mysql_db_password }}");
+$link = mysqli_connect("localhost", "{{ db_user }}", "{{ db_password }}");
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();

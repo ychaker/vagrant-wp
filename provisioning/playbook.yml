@@ -4,17 +4,26 @@
   become: true
   roles:
     - bearandgiraffe.base
-    - php
     - bearandgiraffe.ruby
-    - vim
-    - node
-    - phantomjs
+    - {
+      role:           bearandgiraffe.vim,
+      vim_username:   '{{ username }}',
+      vim_group_name: '{{ group_name }}'
+    }
+    - bearandgiraffe.node
+    - bearandgiraffe.phantomjs
+    - bearandgiraffe.php
 
 # DB
 - hosts: all
   become: true
   roles:
-    - mysql
+    - {
+      role:              bearandgiraffe.mysql,
+      mysql_db_name:     '{{ db_name }}',
+      mysql_db_user:     '{{ db_user }}',
+      mysql_db_password: '{{ db_password }}'
+    }
 
 - hosts: all
   user: vagrant

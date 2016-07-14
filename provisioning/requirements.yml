@@ -1,5 +1,20 @@
-# Install the base role from the Ansible Galaxy
+# Install the Base role from the Ansible Galaxy
 - src: bearandgiraffe.base
 
-# Install the ruby role from the Ansible Galaxy
+# Install the Ruby role from the Ansible Galaxy
 - src: bearandgiraffe.ruby
+
+# Install the MySQL role from the Ansible Galaxy
+- src: bearandgiraffe.mysql
+
+# Install the Vim role from the Ansible Galaxy
+- src: bearandgiraffe.vim
+
+# Install the Node role from the Ansible Galaxy
+- src: bearandgiraffe.node
+
+# Install the PhantomJS role from the Ansible Galaxy
+- src: bearandgiraffe.phantomjs
+
+# Install the PHP role from the Ansible Galaxy
+- src: bearandgiraffe.php

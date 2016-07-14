@@ -7,30 +7,9 @@ username:         vagrant
 group_name:       '{{ username }}'
 user_home_path:   '/home/{{ username }}'
 
-ruby_version:    ruby-2.3.1
-ruby_username:   '{{ "root" if ruby_install == "package" else username }}'
-ruby_outdated_versions: []
-
-chruby_version:      0.3.9
-chruby_checksum:     7220a96e355b8a613929881c091ca85ec809153988d7d691299e0a16806b42fd
-chruby_exec_command: chruby-exec
-
-ruby_install_version:  0.6.0
-ruby_install_checksum: 3cc90846ca972d88b601789af2ad9ed0a496447a13cb986a3d74a4de062af37d
-ruby_install_command:  ruby-install
-
-mysql_db_name:      wp_development
-mysql_db_user:      vagrant
-mysql_db_password:  vagrant
-
-phantomjs_file:   phantomjs-2.1.1-linux-x86_64
-phantomjs_ext:    .tar.bz2
-phantomjs_md5:    1c947d57fce2f21ce0b43fe2ed7cd361
-phantomjs_sha256: 86dd9a4bf4aee45f1a84c9f61cf1947c1d6dce9b9e8d2a907105da7852460d2f
-
-php_install:  '1'
-php_ppa:      php
-php_packages: [php7.0-fpm, php7.0-cli, php7.0-intl, php7.0-mcrypt, php7.0-mysql, php7.0-gd, php-apc]
+db_name:      wp
+db_user:      vagrant
+db_password:  vagrant
 
 server_type:      nginx
 server_name:      localhost
