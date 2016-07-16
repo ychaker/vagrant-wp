@@ -41,7 +41,13 @@
 - hosts: all
   become: true
   roles:
-    - nginx
+    - {
+      role:               bearandgiraffe.nginx,
+      nginx_home_path:    '{{ path }}',
+      nginx_db_user:      '{{ db_user }}',
+      nginx_db_password:  '{{ db_password }}',
+      nginx_server_type:  '{{ server_type }}'
+    }
 
 # Wordpress
 - hosts: all

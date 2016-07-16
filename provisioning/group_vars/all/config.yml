@@ -1,19 +1,15 @@
 ---
-target:       virtualbox
-path:         /vagrant
-website_name: a2z
+target:           virtualbox
+path:             /vagrant
+website_name:     local_wp
 
 username:         vagrant
 group_name:       '{{ username }}'
 user_home_path:   '/home/{{ username }}'
 
-db_name:      wp
-db_user:      vagrant
-db_password:  vagrant
+db_name:          wp
+db_user:          vagrant
+db_password:      vagrant
 
-server_type:      nginx
+server_type:      nginx_php
 server_name:      localhost
-server_timezone:  UTC
-server_locale:    en_US.UTF-8
-ssl_certificate_path:     /etc/nginx/ssl/{{ server_name }}.crt
-ssl_certificate_key_path: /etc/nginx/ssl/{{ server_name }}.key
